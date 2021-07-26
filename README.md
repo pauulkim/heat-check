@@ -1,5 +1,5 @@
 # Background and Overview
-Heat Check will display NBA player shot charts, detailing the various spots on the court NBA players have made shots from.
+Heat Check will display an NBA players shot distribution by year, detailing the various spots on the court NBA players have made shots from.
 
 # Functionality and MVPs 
 Users will be able to: 
@@ -18,9 +18,10 @@ Users will be able to:
 - D3 
 
 # Implementation Timeline 
-Day 1 - Get data from API
-Day 2 - Create D3 elements
-Day 3 - CSS and final touches
+Day 1 - Get data from API </br>
+Day 2 - Create D3 elements </br>
+Day 3 - Create D3 elements </br>
+Day 4 - CSS and final touches 
 
 # Bonus Features 
 - view players shot percentages compared to the league average
