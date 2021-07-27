@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   .append('li')
   //   .text(function(d) { return d; });
 
-  // window.testapi = testapi;
+  window.testapi = testapi;
 
   // end testing
 })
