@@ -18,6 +18,7 @@ app.get('/', (request, response) => {
 
 
 
+
 // NBA API REQUESTS
 // headers
 const headers = {
@@ -32,16 +33,20 @@ const headers = {
   'x-nba-stats-token': 'true'
 };
 
-// test 
-app.get('/test', (request, response) => {
-  console.log("in progress");
+// get list of players in a year
 
-  fetch(`https://stats.nba.com/stats/playergamelogs?DateFrom=&DateTo=&GameSegment=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=Totals&Period=0&PlayerID=201939&PlusMinus=N&Rank=N&Season=2020-21&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&VsConference=&VsDivision=`, 
-    { headers })
-      .then(apiResponse => apiResponse.json())
-      .then(data => response.send(data.resultSets[0].rowSet[0]))
-      .catch(err => response.send(err))
+app.get("/getAllPlayers", (request, response) => {
+  console.log("getting all players");
+
+  fetch("https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&playerList=&Season=2018-19",
+  { headers })
+    .then( apiResponse => apiResponse.json() )
+    .then( data => response.send(data))
+    .catch( err => response.send(err) )
 });
+
+
+
 
 
 

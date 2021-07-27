@@ -27,9 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .style("stroke", "red")
     .style("stroke-width", 2)
 
-  fetch('/test')
-    .then(res => res.json())
-    .then(data => console.log(data))
+
+
+    let result = fetch('/getAllPlayers')
+      .then(apiResponse => apiResponse.json())
+      .then(data => data.resultSets[0].rowSet)
+
+
+  
     
   // const fruits = ['apple', 'mango', 'banana', 'orange'];
 
