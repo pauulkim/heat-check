@@ -4,7 +4,6 @@ import * as d3 from "d3";
 document.addEventListener("DOMContentLoaded", () => {
   // document.getElementById("year").innerHTML = "Select a year";
 
-
   // testing
 
   // create the shot chart container
@@ -36,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //   .enter()
   //   .append('li')
   //   .text(function(d) { return d; });
-
-  window.testapi = testapi;
 
   // end testing
 })
