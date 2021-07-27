@@ -24,9 +24,21 @@
 //   'SeasonYear': '2020-21',
 //   'TypeGrouping': 'offensive'}
 
+const headers = {
+  'Host': 'stats.nba.com',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'Accept': 'application/json, text/plain, */*',
+  'Accept-Language': 'en-US,en;q=0.5',
+  'Referer': 'https://stats.nba.com/',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Connection': 'keep-alive',
+  'x-nba-stats-origin': 'stats',
+  'x-nba-stats-token': 'true'
+};
+
 export const testapi = () => {
   fetch("https://stats.nba.com/stats/playergamelogs?DateFrom=&DateTo=&GameSegment=&LastNGames=0&LeagueID=00&Location=&MeasureType=Advanced&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=Totals&Period=0&PlayerID=2544&PlusMinus=N&Rank=N&Season=2020-21&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&VsConference=&VsDivision=", { headers })
     .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => err.json())
-}
+    // .then(data => console.log(data))
+    .catch(err => console.log(err))
+};
