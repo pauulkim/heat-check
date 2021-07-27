@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").innerHTML = "Select a year";
 
   // testing
-  window.testapi = testapi;
+  // window.testapi = testapi;
   // end testing
 })
 
