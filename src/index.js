@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .attr("y2", 200)
     .style("stroke", "red")
     .style("stroke-width", 2)
+
+  fetch('/test')
+    .then(res => res.json())
+    .then(data => console.log(data))
     
   // const fruits = ['apple', 'mango', 'banana', 'orange'];
 
