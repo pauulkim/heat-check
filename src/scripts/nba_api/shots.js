@@ -1,17 +1,17 @@
-class Shots {
-  constructor(svg) {
-    this.svg = svg
-  }
+// class Shots {
+//   constructor(svg, playerId, ) {
+//     this.svg = svg
+//   }
 
-  
-}
+
+// }
 
 
 
 let shotLocations;
 
-export const getShotLocations = (playerId, yearId) => {
-  fetch(`/getShotChart/${playerId}/${yearId}`)
+export const getShotLocations = (yearId, playerId) => {
+  fetch(`/getShotChart/${yearId}/${playerId}`)
     .then( apiResponse => apiResponse.json() )
     .then( data => {
       shotLocations = data.resultSets[0].rowSet;

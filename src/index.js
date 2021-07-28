@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
 
-  getShotLocations("201939", "2020-21")
+  getShotLocations("2020-21", "201939")
 
 
   // const fruits = ['apple', 'mango', 'banana', 'orange'];
