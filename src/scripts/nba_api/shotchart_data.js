@@ -1,6 +1,12 @@
-export const getShotLocations = async (playerId, yearId) => {
-  const response = await fetch(`/getShotChart/${playerId}/${yearId}`) 
-  console.log(response)
+let shotLocations;
+
+export const getShotLocations = (playerId, yearId) => {
+  fetch(`/getShotChart/${playerId}/${yearId}`)
+    .then( apiResponse => apiResponse.json() )
+    .then( data => {
+      shotLocations = data.resultSets[0].rowSet;
+      console.log(shotLocations)
+    })
 }
 
 

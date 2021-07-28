@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
   .style("stroke-width", 2)
   
   // testing
+
   
+
+
   getShotLocations("201939", "2020-21")
 
 
