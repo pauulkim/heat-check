@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import Shots from "./scripts/nba_api/shots"
+import Shots from "./scripts/shot_chart/shots"
 
 
 document.addEventListener("DOMContentLoaded", () => {
