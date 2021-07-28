@@ -25,10 +25,10 @@ class Shots {
           .data(coordinates)
           .enter()
           .append("circle")
-            .attr("cx", function (d) { return -d[0]; } )
-            .attr("cy", function (d) { return -d[1]; } )
+            .attr("cx", function (d) { return d[0]; } )
+            .attr("cy", function (d) { return d[1]; } )
             .attr("r", 2)
-            .attr('transform', 'translate(250, 450)')
+            .attr('transform', 'translate(250, 52.5)')
             .style("fill", "#69b3a2")
       })    
   }

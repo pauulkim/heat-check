@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import Shots from "./scripts/shot_chart/shots"
-
+import Court from "./scripts/shot_chart/court"
 
 document.addEventListener("DOMContentLoaded", () => {
   // document.getElementById("year").innerHTML = "Select a year";
@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .attr('height', 500)
 
   // create new shot instance to plot shots
+  let court = new Court(svg)
+  court.display_backup()
+
   let shots = new Shots(svg, "2020-21", "201939")
   shots.display()
 
