@@ -5,28 +5,35 @@ import { getShotLocations } from "./scripts/nba_api/shotchart_data"
 
 document.addEventListener("DOMContentLoaded", () => {
   // document.getElementById("year").innerHTML = "Select a year";
-
-  
+    
   // create the shot chart container
-  let svg = d3.select("#shot-chart-container")
-  .append("svg")                    
-  .attr('width', 400)             
-  .attr('height', 400)
-  
+  const svg = d3.select("#shot-chart-container")
+    .append("svg")                    
+      .attr('width', 500)             
+      .attr('height', 500)
+
   svg.append("rect")
-  .attr("width", "100%")
-  .attr("height", "100%")
-  .style("stroke", "red")
-  .style("stroke-width", 2)
-  .style("fill", "none")
-  
-  svg.append("line")
-  .attr("x1", 100)
-  .attr("y1", 100)
-  .attr("x2", 200)
-  .attr("y2", 200)
-  .style("stroke", "red")
-  .style("stroke-width", 2)
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .style("stroke", "red")
+    .style("stroke-width", 2)
+    .style("fill", "none")
+
+  const data = [
+    [10, 20], [20, 100], [200, 50],
+    [25, 80], [10, 200], [150, 75],
+    [10, 70], [30, 150], [100, 15],
+    [5,5], [10,5], [1,1]
+  ]
+
+  svg.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return d[0]; } )
+      .attr("cy", function (d) { return d[1]; } )
+      .attr("r", 2)
+      .style("fill", "#69b3a2")
   
   // testing
 
