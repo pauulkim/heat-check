@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const svg = d3.select("#shot-chart-container")
     .append("svg")                    
       .attr('width', 500)             
-      .attr('height', 900)
+      .attr('height', 500)
 
   // create new shot instance to plot shots
   let shots = new Shots(svg, "2020-21", "201939")
