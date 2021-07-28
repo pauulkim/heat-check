@@ -1,11 +1,11 @@
-import { testapi } from "./scripts/nba_api/shotchart_data"
+import { testapi } from "./scripts/nba_api/shots"
 import * as d3 from "d3";
 import fetch from "node-fetch";
-import { getShotLocations } from "./scripts/nba_api/shotchart_data"
+import { getShotLocations } from "./scripts/nba_api/shots"
 
 document.addEventListener("DOMContentLoaded", () => {
   // document.getElementById("year").innerHTML = "Select a year";
-    
+
   // create the shot chart container
   const svg = d3.select("#shot-chart-container")
     .append("svg")                    
@@ -26,14 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     [5,5], [10,5], [1,1]
   ]
 
-  svg.selectAll("circle")
+  svg.append("g")
+    .selectAll("circle")
     .data(data)
     .enter()
     .append("circle")
       .attr("cx", function (d) { return d[0]; } )
       .attr("cy", function (d) { return d[1]; } )
       .attr("r", 2)
+      .attr('transform', 'translate(250, 52.5)')
       .style("fill", "#69b3a2")
+
   
   // testing
 

@@ -1,3 +1,13 @@
+class Shots {
+  constructor(svg) {
+    this.svg = svg
+  }
+
+  
+}
+
+
+
 let shotLocations;
 
 export const getShotLocations = (playerId, yearId) => {
