@@ -34,17 +34,26 @@ const headers = {
 };
 
 // get list of players in a year
+app.get("/getAllPlayers/:year", (request, response) => {
+  console.log(`getting all players in ${request.params.year}`);
 
-app.get("/getAllPlayers", (request, response) => {
-  console.log("getting all players");
-
-  fetch("https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&playerList=&Season=2018-19",
+  fetch(`https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&playerList=&Season=${request.params.year}`,
   { headers })
     .then( apiResponse => apiResponse.json() )
     .then( data => response.send(data))
     .catch( err => response.send(err) )
 });
 
+// get shot details
+app.get("/getShotChart/:playerId/:yearId", (request, response) => {
+  console.log("getting shot charts")
+
+  fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${request.params.playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${request.params.yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
+  { headers })
+    .then( apiResponse => apiResponse.json() )
+    .then( data => response.send(data))
+    .catch( err => response.send(err) )
+})
 
 
 
