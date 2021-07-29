@@ -8,7 +8,7 @@ const dropdown = (type, selections) => {
     selections.forEach( year => {
       let option = selectEle.append("option");
       option.text(year)
-      option.value(year.slice(0, 4) + "-" + year.slice(-2))
+      option.property("value", year.slice(0, 4) + "-" + year.slice(-2))
     })
   }
 }
