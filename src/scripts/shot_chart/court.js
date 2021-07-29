@@ -26,21 +26,14 @@ class Court {
 
     const pi = Math.PI;
 
-    // black background
-    this.svg.append('rect')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('width', courtWidth)
-        .attr('height', courtHeight)
-        .attr('fill', 'black');
-
     // key 
     this.svg.append('rect')
         .attr('x', 170)
         .attr('y', 0)
         .attr('width', paintWidth)
         .attr('height', paintHeight)
-        .attr('stroke', 'white');
+        .attr('stroke', 'red')
+        .attr("fill", "white")
 
     // three- point side left line
     this.svg.append("line")
@@ -48,7 +41,7 @@ class Court {
         .attr("y1", 0)
         .attr("x2", 30)
         .attr("y2", threePointSideHeight)
-        .attr("stroke", "white");
+        .attr("stroke", "red")
 
     // three - point side right line
     this.svg.append("line")
@@ -56,7 +49,7 @@ class Court {
         .attr("y1", 0)
         .attr("x2", 470)
         .attr("y2", threePointSideHeight)
-        .attr("stroke", "white");
+        .attr("stroke", "red");
 
     const threePointArc = d3.arc()
         .innerRadius(239)
@@ -66,7 +59,7 @@ class Court {
 
     this.svg.append("path")
         .attr("d", threePointArc)
-        .attr("fill", "white")
+        .attr("fill", "red")
         .attr("transform", "rotate(180) translate(-250, -45)")
 
     // cover arc
@@ -75,14 +68,14 @@ class Court {
         .attr('y', 0)
         .attr('width', 29.5)
         .attr('height', 140)
-        .attr('fill', 'black');
+        .attr('fill', 'white');
 
     this.svg.append('rect')
         .attr('x', 470.5)
         .attr('y', 0)
         .attr('width', 29)
         .attr('height', 140)
-        .attr('fill', 'black');
+        .attr('fill', 'white');
 
     // backboard
     this.svg.append("line")
@@ -90,7 +83,7 @@ class Court {
         .attr("y1", 40)
         .attr("x2", 280)
         .attr("y2", 40)
-        .attr("stroke", "white")
+        .attr("stroke", "red")
         .attr("stroke-width", "0.3%");
 
     // rim 
@@ -98,7 +91,8 @@ class Court {
         .attr("cx", 250)
         .attr("cy", 52.5)
         .attr("r", 7.5)
-        .attr("stroke", "white");
+        .attr("stroke", "red")
+        .attr("fill", "none")
 
     // rim extension
     this.svg.append('rect')
@@ -106,7 +100,7 @@ class Court {
         .attr('y', 40)
         .attr('width', 7)
         .attr('height', 5)
-        .attr('fill', 'white');
+        .attr('fill', 'red');
 
     // rim arc
     const rimArc = d3.arc()
@@ -117,8 +111,16 @@ class Court {
 
     this.svg.append("path")
         .attr("d", rimArc)
-        .attr("fill", "white")
+        .attr("fill", "red")
         .attr("transform", "rotate(180) translate(-250, -40)")
+
+    // outside lines
+    this.svg.append("rect")
+          .attr("width", "100%")
+          .attr("height", "100%")
+          .style("stroke", "red")
+          .style("stroke-width", 2)
+          .style("fill", "none")
   }
 }
 

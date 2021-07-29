@@ -13,13 +13,6 @@ class Shots {
         let coordinates = result.map( ele => [ele[17], ele[18]])
         console.log(coordinates);
 
-        this.svg.append("rect")
-          .attr("width", "100%")
-          .attr("height", "100%")
-          .style("stroke", "red")
-          .style("stroke-width", 2)
-          .style("fill", "none")
-
         this.svg.append("g")
           .selectAll("circle")
           .data(coordinates)
