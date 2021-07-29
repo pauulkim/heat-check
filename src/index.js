@@ -4,12 +4,11 @@ import Court from "./scripts/shot_chart/court"
 
 document.addEventListener("DOMContentLoaded", () => {
   // YEAR SELECTION DROPDOWN
-  const years = ["2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020", "2020-2021"]
+  const years = ["", "2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020", "2020-2021"]
   
   const yearContainerEle = document.getElementById("year-select-container");  
 
   const selectYearEle = document.createElement("select");
-  // selectYearEle.id = "year-select"
   yearContainerEle.append(selectYearEle)
   
   years.forEach( year => {
@@ -18,8 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     optionYearEle.text = year
   })
 
-  console.log(selectYearEle.value)
-
+  
+  selectYearEle.addEventListener("change", (event) => {
+    let selectedYear = event.target.value
+    // return selectedYear;
+    console.log(selectedYear)
+  })
+  
   
 
 
@@ -37,26 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // display shots
   let shots = new Shots(svg, "2020-21", "201939")
   shots.display()
-
-  
-
-  
-  // testing
-
-  
-
-
-  // const fruits = ['apple', 'mango', 'banana', 'orange'];
-
-  // d3.select('ul')
-  //   .selectAll('li')
-  //   .data(fruits)
-  //   .enter()
-  //   .append('li')
-  //   .text(function(d) { return d; });
-
-  // end testing
 })
-
-
-// createElement
