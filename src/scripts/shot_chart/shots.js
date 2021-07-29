@@ -11,7 +11,7 @@ class Shots {
       .then( data => {
         let result = data.resultSets[0].rowSet;
         let coordinates = result.map( ele => [ele[17], ele[18]])
-        console.log(coordinates);
+        // console.log(coordinates);
 
         this.svg.append("g")
           .selectAll("circle")
