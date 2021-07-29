@@ -28,9 +28,3 @@ class Shots {
 }
 
 export default Shots;
-
-
-
-// test data:
-// 201939
-// 2020-21
