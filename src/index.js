@@ -30,24 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   dropdown("players", players)
 
-
-
-  // // EVENT LISTENERS FOR SELECTED YEAR/PLAYER
-  // selectYearEle.addEventListener("change", (e) => {
-  //   let selectedYear = e.target.value;
-  //   console.log(selectedYear);
-
-
-
-
-
-  // })
+  // EVENT LISTENER FOR SELECTED YEAR/PLAYER
+  let year;
+  let player;
   
-  
+  const selectDivs = d3.select("#sc-select-container").selectAll("div")
+  selectDivs.on("change", (e) => {  
+    if (e.target.id === "years") year = e.target.value;
+    if (e.target.id === "players") player = e.target.value;
 
-
-
-  // display shots
-  let shots = new Shots(svg, "2020-21", "201939")
-  shots.display()
+    console.log(year);
+    console.log(player);
+    
+    let shots = new Shots(svg, "2020-21", "201939")
+    shots.display()
+  })
 })

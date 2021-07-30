@@ -4,6 +4,7 @@ import * as d3 from "d3";
 const dropdown = (type, selections) => {
   d3.select(`#${type}-select-container`).append("p").text(`Select a ${type.slice(0, -1)}`);
   let selectEle = d3.select(`#${type}-select-container`).append("select");
+  selectEle.attr("id", type)
   
   if (type === "years") {
     selections.forEach( year => {
