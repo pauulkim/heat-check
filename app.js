@@ -44,21 +44,38 @@ app.get("/getAllPlayers/:year", (request, response) => {
     .catch( err => response.send(err) )
 });
 
+async function getShots(yearId, playerId) {
+  return await fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
+  { headers, mode: "cors" })
+}
+
 // get shot details
 app.get("/getShotChart/:yearId/:playerId", (request, response) => {
   console.log("getting shot charts")
 
-  fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${request.params.playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${request.params.yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
-  { headers, mode: "cors" })
-    .then( apiResponse => {
-      console.log(apiResponse);
-      return apiResponse.json();
-    } )
-    .then( data => response.send(data))
-    .catch( err => {
-      console.log(err);
-      return response.send(err);
-    } )
+  let shots = getShots(request.params.yearId, request.params.playerId);
+
+  shots.then( apiResponse => {
+    console.log(apiResponse);
+    return apiResponse.json();
+  } )
+  .then( data => response.send(data))
+  .catch( err => {
+    console.log(err);
+    return response.send(err);
+  } )
+
+  // fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${request.params.playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${request.params.yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
+  // { headers, mode: "cors" })
+  //   .then( apiResponse => {
+  //     console.log(apiResponse);
+  //     return apiResponse.json();
+  //   } )
+  //   .then( data => response.send(data))
+  //   .catch( err => {
+  //     console.log(err);
+  //     return response.send(err);
+  //   } )
 })
 
 
