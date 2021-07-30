@@ -52,7 +52,10 @@ app.get("/getShotChart/:yearId/:playerId", (request, response) => {
   { headers, mode: "cors" })
     .then( apiResponse => apiResponse.json() )
     .then( data => response.send(data))
-    .catch( err => response.send(err) )
+    .catch( err => {
+      console.log(err);
+      response.send(err);
+    } )
 })
 
 
