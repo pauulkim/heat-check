@@ -50,7 +50,10 @@ app.get("/getShotChart/:yearId/:playerId", (request, response) => {
 
   fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${request.params.playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${request.params.yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
   { headers, mode: "cors" })
-    .then( apiResponse => apiResponse.json() )
+    .then( apiResponse => {
+      console.log(apiResponse);
+      apiResponse.json();
+    } )
     .then( data => response.send(data))
     .catch( err => {
       console.log(err);
