@@ -24,7 +24,8 @@ class Shots {
             .attr("r", 2)
             .attr('transform', 'translate(250, 52.5)')
             .style("fill", "#69b3a2")
-      })    
+      })
+      .catch( console.log )  
   }
 }
 
