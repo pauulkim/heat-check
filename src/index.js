@@ -38,9 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   selectDivs.on("change", (e) => {  
     if (e.target.id === "years") year = e.target.value;
     if (e.target.id === "players") player = e.target.value;
-
-    console.log(year);
-    console.log(player);
   
     if ((year !== "" && player !== "" && year !== undefined && player !== undefined)) {
       svg.select("#coordinates-container").remove()
