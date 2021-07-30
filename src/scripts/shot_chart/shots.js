@@ -14,6 +14,7 @@ class Shots {
         // console.log(coordinates);
 
         this.svg.append("g")
+          .attr("id", "coordinates-container")
           .selectAll("circle")
           .data(coordinates)
           .enter()

@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(player);
   
     if ((year !== "" && player !== "" && year !== undefined && player !== undefined)) {
+      svg.select("#coordinates-container").remove()
       let shots = new Shots(svg, year, player)
       shots.display()
     }
