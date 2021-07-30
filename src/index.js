@@ -21,7 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdown("years", years);
 
   // players
-
+  const players = {
+    "": "",
+    "Stephen Curry": "201939",
+    "LeBron James": "2544",
+    "Kevin Durant": "201142",
+    "Kyrie Irving": "202681"
+  };
+  dropdown("players", players)
 
 
 
