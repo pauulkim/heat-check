@@ -41,8 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(year);
     console.log(player);
-    
-    let shots = new Shots(svg, "2020-21", "201939")
-    shots.display()
+  
+    if ((year !== "" && player !== "" && year !== undefined && player !== undefined)) {
+      let shots = new Shots(svg, year, player)
+      shots.display()
+    }
   })
 })
