@@ -2,6 +2,7 @@ const express = require('express'); // web framework
 const fetch = require('node-fetch'); // for making AJAX requests
 const path = require('path');
 
+console.log("in app.js:5")
 // put environmental variables defined in .env file on process.env
 require('dotenv').config(); 
 
@@ -12,6 +13,7 @@ app.use(express.static('dist'));
 
 // in response to `GET /` requests, send the file `dist/index.html`
 app.get('/', (request, response) => {
+  console.log("app.js:14")
   response.sendFile(`${__dirname}/dist/index.html`);
 });
 
@@ -36,18 +38,20 @@ const headers = {
 // get list of players in a year
 app.get("/getAllPlayers/:year", (request, response) => {
   console.log(`getting all players in ${request.params.year}`);
-
+  
   fetch(`https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&playerList=&Season=${request.params.year}`,
   { headers })
-    .then( apiResponse => apiResponse.json() )
-    .then( data => response.send(data))
-    .catch( err => response.send(err) )
+  .then( apiResponse => apiResponse.json() )
+  .then( data => response.send(data))
+  .catch( err => response.send(err) )
 });
 
 async function getShots(yearId, playerId) {
+  console.log("app.js:49")
   return await fetch(`https://stats.nba.com/stats/shotchartdetail?AheadBehind=&ClutchTime=&ContextFilter=&ContextMeasure=FGA&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&LastNGames=0&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&Period=0&PlayerID=${playerId}&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=${yearId}&SeasonSegment=&SeasonType=Regular+Season&StartPeriod=&StartRange=&TeamID=0&VsConference=&VsDivision=`,
   { headers, mode: "cors" })
 }
+
 
 // get shot details
 app.get("/getShotChart/:yearId/:playerId", (request, response) => {
