@@ -10,7 +10,6 @@ const getAllPlayers = async (year) => {
 
 const getAllPlayers = async() => {
   const response = await fetch('getAllPlayers');
-  console.log(response)
 }
 
 getAllPlayers()
@@ -18,7 +17,6 @@ getAllPlayers()
   // .then(res => res.json())
   // .then(data => {
   //   let test = JSON.parse(data);
-  //   console.log(test);
   //   return test;
   // })
   
